@@ -3,6 +3,9 @@
 
 using namespace std;
 
+// ----------------------------------------------------------
+// -----------------!   version recursive   !----------------
+// ----------------------------------------------------------
 
 class Solution {
 public:
@@ -26,8 +29,40 @@ public:
     
 };
 
+// ----------------------------------------------------------
+// -----------------!   version iteration   !----------------
+// ----------------------------------------------------------
+
+class Solution {
+public:
+    vector<vector<int>> permute(vector<int>& nums)
+    {
+        vector<vector<int>> res = {{}};
+
+        for (int num : nums)
+        {
+            vector<vector<int>> new_res;
+
+            for (const auto& perm : res)
+            {
+                for (size_t i = 0; i <= perm.size(); i++)
+                {
+                    vector<int> temp = perm;
+                    temp.insert(temp.begin() + i, num);
+                    new_res.push_back(temp);
+                }
+            }
+
+            res = new_res;
+        }
+
+        return res;
+    }
+};
 
 
+// ----------------------------------------------------------
+// ----------------------------------------------------------
 int main()
 {
     Solution sol;
