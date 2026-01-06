@@ -1,2 +1,2 @@
 # propleme-solving
-preactice code 
+practice code 
